@@ -9,7 +9,7 @@ const ContentSection = ({ selectedSubcatId }) => {
 
   useEffect(() => {
     if (selectedSubcatId) {
-      axios.get(`http://localhost:5000/api/duas/${selectedSubcatId}`)
+      axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/duas/${selectedSubcatId}`)
         .then(res => setItems(res.data))
         .catch(err => console.error('Failed to fetch content:', err));
     }

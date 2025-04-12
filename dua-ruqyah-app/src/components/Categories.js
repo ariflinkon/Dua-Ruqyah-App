@@ -11,14 +11,14 @@ const Categories = ({ onSubcategoryClick }) => {
   const { language, fontFamily, theme } = useSettings();
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/categories')
+    axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/categories`)
       .then(async (res) => {
         const cats = res.data;
         setCategories(cats);
         if (cats.length > 0) {
           const firstCatId = cats[0].cat_id;
           setExpandedCatId(firstCatId);
-          const subRes = await axios.get(`http://localhost:5000/api/subcategories/${firstCatId}`);
+          const subRes = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/subcategories/${firstCatId}`);
           const subs = subRes.data;
           setSubcategories(subs);
 
@@ -35,7 +35,7 @@ const Categories = ({ onSubcategoryClick }) => {
     setExpandedCatId(newCatId);
 
     if (newCatId) {
-      const res = await axios.get(`http://localhost:5000/api/subcategories/${newCatId}`);
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/subcategories/${newCatId}`);
       const subs = res.data;
       setSubcategories(subs);
 
