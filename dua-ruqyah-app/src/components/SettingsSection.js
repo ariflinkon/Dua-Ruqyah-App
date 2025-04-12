@@ -20,7 +20,8 @@ const SettingsSection = () => {
     setExpanded(prev => (prev === section ? null : section));
   };
 
-  const boxStyle = "w-[280px] h-[55px] bg-[#F7F8FA] border border-[#E2E2E2] px-4 py-2 rounded text-black";
+  const boxStyle = "w-[280px] h-[55px] bg-white border border-[#E2E2E2] px-4 py-2 rounded text-black";
+  const settingHeaderStyle = "w-[289px] h-[55px] bg-[#F7F8FA] flex items-center space-x-4 cursor-pointer px-4 rounded";
 
   return (
     <div className={`relative ${theme === 'dark' ? 'bg-[#1a1a1a] text-white' : 'bg-white text-[#333333]'} border border-[#E2E2E2] rounded-[10px] p-[20px] w-[330px] h-[834px] fixed top-[133px] left-[1550px] overflow-auto`}>
@@ -30,8 +31,7 @@ const SettingsSection = () => {
       <div className="space-y-4">
         {/* Language Settings */}
         <div>
-
-          <div className="flex items-center space-x-4 cursor-pointer" onClick={() => toggleExpand('language')}>
+          <div className={settingHeaderStyle} onClick={() => toggleExpand('language')}>
             <div className="w-[30px] h-[30px] bg-[#E2E2E2] rounded-full flex items-center justify-center">
               <img src="/images/Language.png" alt="Language Icon" className="w-[16px] h-[16px]" />
             </div>
@@ -52,8 +52,8 @@ const SettingsSection = () => {
         </div>
 
         {/* General Settings */}
-        <div >
-          <div className="flex items-center space-x-4 cursor-pointer" onClick={() => toggleExpand('general')}>
+        <div>
+          <div className={settingHeaderStyle} onClick={() => toggleExpand('general')}>
             <div className="w-[30px] h-[30px] bg-[#E2E2E2] rounded-full flex items-center justify-center">
               <img src="/images/Generalsetting.png" alt="General Settings Icon" className="w-[16px] h-[16px]" />
             </div>
@@ -68,7 +68,7 @@ const SettingsSection = () => {
 
         {/* Font Settings */}
         <div>
-          <div className="flex items-center space-x-4 cursor-pointer" onClick={() => toggleExpand('font')}>
+          <div className={settingHeaderStyle} onClick={() => toggleExpand('font')}>
             <div className="w-[30px] h-[30px] bg-[#E2E2E2] rounded-full flex items-center justify-center">
               <img src="/images/AllDua.png" alt="Font Settings Icon" className="w-[16px] h-[16px]" />
             </div>
@@ -91,7 +91,7 @@ const SettingsSection = () => {
 
         {/* Appearance Settings */}
         <div>
-          <div className="flex items-center space-x-4 cursor-pointer" onClick={() => toggleExpand('appearance')}>
+          <div className={settingHeaderStyle} onClick={() => toggleExpand('appearance')}>
             <div className="w-[30px] h-[30px] bg-[#E2E2E2] rounded-full flex items-center justify-center">
               <img src="/images/AllDua.png" alt="Appearance Settings Icon" className="w-[16px] h-[16px]" />
             </div>

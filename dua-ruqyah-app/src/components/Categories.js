@@ -51,52 +51,53 @@ const Categories = ({ onSubcategoryClick }) => {
 
   return (
     <div className="absolute top-[133px] left-[170px] w-[429px]">
-      <div className={`${isDark ? 'bg-[#333]' : 'bg-white'} border border-[#E2E2E2] rounded-[10px] mb-4`}>
-        <div className="bg-[#1FA45B] text-white text-center py-3 rounded-t-[10px]">
-          <p className="text-xl font-bold" style={{ fontFamily }}>Categories</p>
-        </div>
-        <div className="p-3">
-          <input type="text" placeholder="Search..." className="w-full p-2 border border-[#E2E2E2] rounded-[5px]" />
-        </div>
-      </div>
-
-      <div className={`${isDark ? 'bg-[#222] text-white' : 'bg-white'} border border-[#E2E2E2] rounded-[10px] p-4 h-[685px] overflow-y-auto`}>
-        {categories.map(cat => (
-          <div key={cat.cat_id} className="mb-4">
-            <div
-              className="flex items-center p-4 rounded-lg cursor-pointer bg-[#E8F0F5]"
-              onClick={() => handleCategoryClick(cat.cat_id)}
-            >
-              <div className="w-[40px] h-[40px] rounded-full flex items-center justify-center">
-                <img src={`/images/005-fever.png`} alt="Category Icon" className="w-[20px] h-[20px]" />
-              </div>
-              <div className="ml-4 flex-1">
-                <h3 className={`text-lg font-semibold ${expandedCatId === cat.cat_id ? 'text-[#1FA45B]' : isDark ? 'text-white' : 'text-black'}`} style={{ fontFamily }}>
-                  {language === 'bn' ? cat.cat_name_bn : cat.cat_name_en}
-                </h3>
-                <p className="text-sm text-[#6A6A6A]" style={{ fontFamily }}>Subcategory: {cat.no_of_subcat}</p>
-              </div>
-              <div className="text-[#1FA45B] text-lg font-semibold">{cat.no_of_dua}</div>
-            </div>
-
-            {expandedCatId === cat.cat_id && (
-              <div className="ml-12 mt-2 space-y-2">
-                {subcategories.map(sub => (
-                  <p
-                    key={sub.subcat_id}
-                    className="cursor-pointer text-sm hover:text-[#1FA45B]"
-                    style={{ fontFamily, color: isDark ? '#ccc' : '#333' }}
-                    onClick={() => onSubcategoryClick(sub.subcat_id)}
-                  >
-                    ↳ {language === 'bn' ? sub.subcat_name_bn : sub.subcat_name_en}
-                  </p>
-                ))}
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
+  <div className={`${isDark ? 'bg-[#333]' : 'bg-white'}  border-[#E2E2E2] rounded-t-[10px] rounded-b-none`}>
+    <div className="bg-[#1FA45B] text-white text-center py-3 rounded-t-[10px]">
+      <p className="text-xl font-bold" style={{ fontFamily }}>Categories</p>
     </div>
+    <div className="p-3" >
+      <input type="text" placeholder="Search..." className="w-full p-2 border border-[#E2E2E2] rounded-[5px]" />
+    </div>
+  </div>
+
+  <div className={`${isDark ? 'bg-[#222] text-white' : 'bg-white'} border border-[#E2E2E2] border-t-0 rounded-b-[10px] p-4 h-[685px] overflow-y-auto`}>
+    {categories.map(cat => (
+      <div key={cat.cat_id} className="mb-4">
+        <div
+          className="flex items-center p-4 rounded-lg cursor-pointer bg-[#E8F0F5]"
+          onClick={() => handleCategoryClick(cat.cat_id)}
+        >
+          <div className="w-[40px] h-[40px] rounded-full flex items-center justify-center">
+            <img src={`/images/005-fever.png`} alt="Category Icon" className="w-[40px] h-[40px] bg-[#CFE0E5] rounded-[5px] p-2" />
+          </div>
+          <div className="ml-4 flex-1">
+            <h3 className={`text-lg font-semibold ${expandedCatId === cat.cat_id ? 'text-[#1FA45B]' : isDark ? 'text-white' : 'text-black'}`} style={{ fontFamily }}>
+              {language === 'bn' ? cat.cat_name_bn : cat.cat_name_en}
+            </h3>
+            <p className="text-sm text-[#6A6A6A]" style={{ fontFamily }}>Subcategory: {cat.no_of_subcat}</p>
+          </div>
+          <div className="text-[#1FA45B] text-lg font-semibold">{cat.no_of_dua}</div>
+        </div>
+
+        {expandedCatId === cat.cat_id && (
+          <div className="ml-12 mt-2 space-y-2">
+            {subcategories.map(sub => (
+              <p
+                key={sub.subcat_id}
+                className="cursor-pointer text-sm hover:text-[#1FA45B]"
+                style={{ fontFamily, color: isDark ? '#ccc' : '#333' }}
+                onClick={() => onSubcategoryClick(sub.subcat_id)}
+              >
+                ↳ {language === 'bn' ? sub.subcat_name_bn : sub.subcat_name_en}
+              </p>
+            ))}
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
+</div>
+
   );
 };
 

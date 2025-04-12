@@ -1,4 +1,4 @@
-const Rectangle = () => {
+const VerticalMenu = () => {
   return (
     <div className="relative h-screen"> {/* Parent container with relative positioning */}
       <div className="w-[100px] h-[927px] top-[40px] left-[40px] rounded-[24px] bg-white absolute flex flex-col justify-between"> {/* Flex container for vertical menu */}
@@ -36,15 +36,13 @@ const Rectangle = () => {
   ))}
 </div>
 
-
-
         {/* Bottom Section: Support Icon */}
         <div className="flex justify-center py-4">
-          <img src="/images/I want to support.png" alt="Support" className="w-[40px] h-[40px]" /> {/* Adjust the support icon size */}
+          <img src="/images/I want to support.png" alt="Support" className="w-[60px] h-[60px]" /> {/* Adjust the support icon size */}
         </div>
       </div>
     </div>
   );
 };
 
-export default Rectangle;
+export default VerticalMenu;
